@@ -22,7 +22,7 @@ public class CORSFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest res = (HttpServletRequest) request;
         HttpServletResponse req = (HttpServletResponse) response;
-        req.setHeader("Access-Control-Allow-Origin", "http://127.0.0.1:8080");
+        req.setHeader("Access-Control-Allow-Origin", "http://www.nihaov.com");
         req.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
         req.addHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         chain.doFilter(res, req);
