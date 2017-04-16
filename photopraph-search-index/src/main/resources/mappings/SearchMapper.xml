@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.nihaov.photograph.search.dao.ISearchDAO">
+    <resultMap id="ImageDTOMap" type="com.nihaov.photograph.search.model.dto.ImageDTO">
+        <id column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="path" property="path"/>
+        <result column="uid" property="uid"/>
+        <result column="createdAt" property="createdAt"/>
+        <collection property="tags" ofType="java.lang.String">
+            <result property="name" column="name"/>
+        </collection>
+    </resultMap>
+
+    <select id="selectNeedIndex" resultMap="ImageDTOMap">
+        select a.*,c.name from tb_image a left join tb_image2tag b on a.id=b.image_id
+        left join tb_tag c on c.id=b.tag_id
+        where a.id BETWEEN #{first} and #{last}
+    </select>
+    <select id="selectNeedIndexById" resultMap="ImageDTOMap">
+        select a.*,c.name from tb_image a left join tb_image2tag b on a.id=b.image_id
+        left join tb_tag c on c.id=b.tag_id
+        where a.id=#{id}
+    </select>
+</mapper>
