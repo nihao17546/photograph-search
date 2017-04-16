@@ -20,12 +20,12 @@ public class CORSFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        HttpServletRequest res = (HttpServletRequest) request;
-        HttpServletResponse req = (HttpServletResponse) response;
-        req.setHeader("Access-Control-Allow-Origin", "http://www.nihaov.com,http://www.meetwo.me");
-        req.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
-        req.addHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-        chain.doFilter(res, req);
+//        HttpServletRequest res = (HttpServletRequest) request;
+//        HttpServletResponse req = (HttpServletResponse) response;
+//        req.setHeader("Access-Control-Allow-Origin", "http://www.nihaov.com,http://www.meetwo.me");
+//        req.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+//        req.addHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        chain.doFilter(request, response);
 //        Cookie[] cookies = res.getCookies();
 //        int status = 401;
 //        if(cookies!=null){
